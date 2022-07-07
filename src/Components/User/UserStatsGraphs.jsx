@@ -38,7 +38,7 @@ const UserStatsGraphs = ({ data }) => {
         y: +item.acessos
       }
     })
-    setTotal(data.map(({ acessos }) => +acessos).reduce((a, b) => a + b))
+    setTotal(data.map(({ acessos }) => +acessos).reduce((a, b) => a + b, 0))
     setGraph(graphData)
   }, [data])
 
