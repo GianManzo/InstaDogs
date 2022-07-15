@@ -6,6 +6,7 @@ import ImgViews from '../../Assets/img/visualizacao-black.svg'
 import { UserContext } from '../../UserContext'
 import { PhotoDelete } from './PhotoDelete'
 import { Image } from '../Helper/Image'
+import { useSelector } from 'react-redux'
 
 const Views = styled.span`
   ::before {
@@ -82,9 +83,9 @@ const BoxImg = styled.div`
     grid-row: 1;
   }
 `
-export const PhotoContent = ({ data, single }) => {
+export const PhotoContent = ({ single }) => {
   const user = React.useContext(UserContext)
-  const { photo, comments } = data
+  const { photo, comments } = useSelector(state => state.photo.data)
 
   return (
     <Photo

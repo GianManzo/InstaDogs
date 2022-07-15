@@ -4,10 +4,10 @@ import {
   getDefaultMiddleware
 } from '@reduxjs/toolkit'
 
-const contador = () => 0
+import photo from './photo'
 
 const middleware = [...getDefaultMiddleware()]
-const reducer = combineReducers({ contador })
+const reducer = combineReducers({ photo })
 const store = configureStore({ reducer, middleware })
 
 export default store
