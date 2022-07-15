@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import { UserContext } from '../../UserContext'
 import { Feed } from '../Feed/Feed'
 import { NotFound } from '../NotFound'
 import { UserHeader } from './UserHeader'
@@ -9,7 +9,7 @@ import { UserPhotoPost } from './UserPhotoPost'
 import { UserStats } from './UserStats'
 
 export const User = () => {
-  const { data } = React.useContext(UserContext)
+  const { data } = useSelector(state => state.user)
   return (
     <section className="container">
       <Helmet>

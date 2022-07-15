@@ -5,9 +5,10 @@ import { Input } from '../../Forms/Input'
 import { Button } from '../../Forms/Button'
 import { ButtonForm } from '../../Forms/Button'
 import { useForm } from '../../../Hooks/useForm'
-import { UserContext } from '../../../UserContext'
 import { Error } from '../../Helper/Error'
 import { Helmet } from 'react-helmet'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogin } from '../../../store/user'
 
 const FormSection = styled.section`
   a.resetSenha {
@@ -52,13 +53,18 @@ export const LoginForm = () => {
   const username = useForm()
   const password = useForm()
 
-  const { userLogin, error, loading } = React.useContext(UserContext)
+  const { token, user } = useSelector(state => state)
+  const loading = token.loading || user.loading
+  const error = token.loading || user.error
+  const dispatch = useDispatch()
 
   async function handleSubmit(event) {
     event.preventDefault()
 
     if (username.validate() && password.validate()) {
-      userLogin(username.value, password.value)
+      dispatch(
+        userLogin({ username: username.value, password: password.value })
+      )
     }
   }
 

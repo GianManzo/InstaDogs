@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BackgroundImg from '../Assets/img/usuario.svg'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Dogs } from '../Assets/img/dogs.svg'
-import { UserContext } from '../UserContext'
+import { useSelector } from 'react-redux'
 
 //--Styles
 const HeaderTag = styled.header`
@@ -41,7 +41,7 @@ const HeaderNav = styled.nav`
 `
 
 export const Header = () => {
-  const { data } = React.useContext(UserContext)
+  const { data } = useSelector(state => state.user)
   return (
     <HeaderTag>
       <HeaderNav className="container">
