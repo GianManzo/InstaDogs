@@ -8,6 +8,7 @@ import { LoginPasswordReset } from './LoginPasswordReset'
 import ImgLogin from '../../../Assets/img/login.jpg'
 import { NotFound } from '../../NotFound'
 import { useSelector } from 'react-redux'
+import { Loading } from '../../Helper/Loading'
 
 const LoginSection = styled.section`
   display: grid;
@@ -37,8 +38,9 @@ const LoginStyle = styled.div`
 `
 
 export const Login = () => {
-  const { data } = useSelector(state => state.user)
+  const { data, loading } = useSelector(state => state.user)
 
+  if (loading) return <Loading />
   if (data) return <Navigate to="/conta" />
   return (
     <LoginSection>

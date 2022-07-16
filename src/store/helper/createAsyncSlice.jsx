@@ -30,7 +30,12 @@ const createAsyncSlice = config => {
         state.data = null
         state.error = action.error
       },
-      ...config.reducers
+      ...config.reducers,
+      resetState(state) {
+        state.loading = false
+        state.data = null
+        state.error = null
+      }
     }
   })
 

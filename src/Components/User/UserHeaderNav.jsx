@@ -1,15 +1,17 @@
 import React from 'react'
 import styles from './UserHeaderNav.module.css'
 import { NavLink, useLocation } from 'react-router-dom'
-import { UserContext } from '../../UserContext'
 import { ReactComponent as MyPictures } from '../../Assets/img/feed.svg'
 import { ReactComponent as Stats } from '../../Assets/img/estatisticas.svg'
 import { ReactComponent as AddPhoto } from '../../Assets/img/adicionar.svg'
 import { ReactComponent as Exit } from '../../Assets/img/sair.svg'
 import { useMedia } from '../../Hooks/useMedia'
+import { useDispatch } from 'react-redux'
+import { userLogout } from '../../store/user'
 
 export const UserHeaderNav = () => {
-  const { userLogout } = React.useContext(UserContext)
+  const dispatch = useDispatch()
+
   const mobile = useMedia('(max-width: 40rem)')
   const [mobileMenu, setMobileMenu] = React.useState(false)
 
@@ -45,7 +47,7 @@ export const UserHeaderNav = () => {
           <AddPhoto />
           {mobile && 'Adicionar Foto'}
         </NavLink>
-        <button onClick={userLogout}>
+        <button onClick={() => dispatch(userLogout())}>
           <Exit />
           {mobile && ' Sair'}
         </button>
