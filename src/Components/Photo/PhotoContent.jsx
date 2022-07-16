@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { PhotoComments } from './PhotoComments'
 import ImgViews from '../../Assets/img/visualizacao-black.svg'
-import { UserContext } from '../../UserContext'
 import { PhotoDelete } from './PhotoDelete'
 import { Image } from '../Helper/Image'
 import { useSelector } from 'react-redux'
@@ -84,8 +83,8 @@ const BoxImg = styled.div`
   }
 `
 export const PhotoContent = ({ single }) => {
-  const user = React.useContext(UserContext)
   const { photo, comments } = useSelector(state => state.photo.data)
+  const { user } = useSelector(state => state)
 
   return (
     <Photo
