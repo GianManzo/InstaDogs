@@ -20,9 +20,9 @@ export const FeedPhotos = ({ setModalPhoto }) => {
 
   return (
     <PhotosUl className="animeLeft">
-      {list.map(photo => (
+      {list.map((photo, index) => (
         <FeedPhotoItem
-          key={photo.id}
+          key={index}
           photo={photo}
           setModalPhoto={setModalPhoto}
         />
