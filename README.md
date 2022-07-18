@@ -15,6 +15,7 @@
 ## ✨ Stack
 
 - [ ] React
+- [ ] Redux
 - [ ] Styled-Components
 - [ ] Lib Victory Graphs
 - [ ] Helmet
