@@ -1,6 +1,9 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import imgViews from '../../Assets/img/visualizacao.svg'
+import { fetchPhoto } from '../../store/photo'
+import { openModal } from '../../store/ui'
 import { Image } from '../Helper/Image'
 
 const PhotoLi = styled.li`
@@ -44,9 +47,11 @@ const Views = styled.span`
   }
 `
 
-export const FeedPhotoItem = ({ photo, setModalPhoto }) => {
+export const FeedPhotoItem = ({ photo }) => {
+  const dispatch = useDispatch()
   function handleClick() {
-    setModalPhoto(photo)
+    dispatch(openModal())
+    dispatch(fetchPhoto(photo.id))
   }
   return (
     <PhotoLi onClick={handleClick}>
