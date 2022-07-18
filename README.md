@@ -5,7 +5,7 @@
 </p>
 
 <div align="center">
-  <img src="https://i.imgur.com/Jo0XOrj.png" width="80%" alt="page login"  />
+  <img src="./src/Assets/img/readmeDogs.png" width="80%" alt="page login"  />
 </div>
 
 <br>
